@@ -22,6 +22,7 @@ public class _01_01 {
 
   public static void main(String[] args) {
     _01_01 s = new _01_01();
-    s.solution();
+
+    System.out.println(s.solution());
   }
 }
