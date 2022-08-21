@@ -3,6 +3,7 @@ package Bakjun_Gold;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Arrays;
 import java.util.StringTokenizer;
 
 public class _G5_14891_톱니바퀴 {
@@ -28,10 +29,11 @@ public class _G5_14891_톱니바퀴 {
             int number = Integer.parseInt(st.nextToken());
             int turn = Integer.parseInt(st.nextToken());
 
-            init(number, turn);
+            init(number - 1, turn);
         }
         solution();
         System.out.println(sum);
+     //   System.out.println(Arrays.deepToString(map));
     }
 
     private static int solution() {
@@ -83,20 +85,21 @@ public class _G5_14891_톱니바퀴 {
 
 
     private static void shif(int number) {
+     //   System.out.println(number);
         int tmp = map[number][7];
 
         for (int i = 7; i > 0; i--) {
             map[number][i] = map[number][i - 1];
         }
         map[number][0] = tmp;
-      //  System.out.println("o" + Arrays.deepToString(map));
+       // System.out.println("o" + Arrays.deepToString(map));
 
     }
 
     private static void unShif(int number) {
         int tmp = map[number][0];
 
-        for (int i = 0; i > 7; i++) {
+        for (int i = 0; i < 7; i++) {
             map[number][i] = map[number][i + 1];
         }
         map[number][7] = tmp;
