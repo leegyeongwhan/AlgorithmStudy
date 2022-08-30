@@ -1,10 +1,10 @@
 package Inflean;
 
-public class Node {
+public class NodeDfs {
     int data = 0;
-    Node lt, rt;
+    NodeDfs lt, rt;
 
-    public Node(int val) {
+    public NodeDfs(int val) {
         data = val;
         lt = rt = null;
     }
@@ -12,11 +12,11 @@ public class Node {
 
 
 class Main1 {
-    Node root;
-    public void dfs(Node root) {
+    NodeDfs root;
+    public void dfs(NodeDfs root) {
             if(root == null){
                 return;
-                /////// 이진트리 에서 출력을 어디에서  하느냐를 중요시 생각하자
+                /////// 이진트리 에서 출력을 어디에서  하느냐가 중요함
             }else {
                 System.out.print(root.data+" "); //전위
                 dfs(root.lt);
@@ -28,13 +28,13 @@ class Main1 {
 
     public static void main(String[] args) {
         Main1 tree = new Main1();
-        tree.root = new Node(1);
-        tree.root.lt = new Node(2);
-        tree.root.rt = new Node(3);
-        tree.root.lt.lt = new Node(4);
-        tree.root.lt.rt = new Node(5);
-        tree.root.rt.lt = new Node(6);
-        tree.root.rt.rt = new Node(7);
+        tree.root = new NodeDfs(1);
+        tree.root.lt = new NodeDfs(2);
+        tree.root.rt = new NodeDfs(3);
+        tree.root.lt.lt = new NodeDfs(4);
+        tree.root.lt.rt = new NodeDfs(5);
+        tree.root.rt.lt = new NodeDfs(6);
+        tree.root.rt.rt = new NodeDfs(7);
         tree.dfs(tree.root);
     }
 }
