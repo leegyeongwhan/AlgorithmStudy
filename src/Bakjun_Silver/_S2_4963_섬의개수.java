@@ -42,6 +42,7 @@ public class _S2_4963_섬의개수 {
                     //map 이섬이면서 방문하지 않았어야함
                     if (map[i][j] == 1 && !visit[i][j]) {
                         dfs(i, j);
+                        System.out.println("dfs" + i + "m" + j);
                         cnt++;
                     }
                 }
@@ -75,6 +76,7 @@ public class _S2_4963_섬의개수 {
                 //System.out.println("dfs(x)=" + nx + "dfs(y)=" + ny);
             }
         }
+        System.out.println("_S2_4963_섬의개수.dfs");
         return;
     }
 }
