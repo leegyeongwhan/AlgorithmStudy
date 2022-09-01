@@ -36,14 +36,14 @@ public class G3_4577_소코반 {
             String command = input.readLine();
             commandSetting(command);
 
-       //     System.out.println(Arrays.deepToString(map));
+            //     System.out.println(Arrays.deepToString(map));
 //            System.out.println(command);
-            printMap();
-    //        System.out.println(target);
+            //        System.out.println(target);
+            System.out.print(printMap());
         }
     }
 
-    private static void printMap() {
+    private static String printMap() {
         StringBuilder sb = new StringBuilder();
         boolean isComplete = true;
 
@@ -56,7 +56,7 @@ public class G3_4577_소코반 {
             }
             sb.append("\n");
         }
-        System.out.println("Game " + (stage++) + ": " + (isComplete ? "complete" : "incomplete") + "\n" + sb);
+        return "Game " + (stage++) + ": " + (isComplete ? "complete" : "incomplete") + "\n" + sb;
     }
 
     private static void commandSetting(String command) {
