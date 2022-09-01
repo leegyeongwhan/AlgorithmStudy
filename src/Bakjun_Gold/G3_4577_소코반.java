@@ -3,55 +3,89 @@ package Bakjun_Gold;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.StringTokenizer;
+import java.util.*;
 
 public class G3_4577_소코반 {
     static int target;  // 플레이어,플레이어가 위치한 목표점, 목표점을 3가지를 목표로 0이될떄까지 추적한다.
     static char[][] map;
-    static char[] command;
+    static char[] cmd;
     static Point player;
-    static int R;
-    static int C;
+    static int raw;
+    static int cal;
     //상하좌우
-    static int[] dirX = {0, -1, 0, 1};
-    static int[] dirY = {-1, 0, 1, 0};
+    static final int U = 0, D = 1, L = 2, R = 3;
+    static int[] dirX = {-1, 1, 0, 0};
+    static int[] dirY = {0, 0, -1, 1};
 
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
 
         while (true) {
-            st = new StringTokenizer(br.readLine());
-            R = Integer.parseInt(st.nextToken());
-            C = Integer.parseInt(st.nextToken());
-            if (R == 0 && C == 0) {
+            st = new StringTokenizer(input.readLine());
+            raw = Integer.parseInt(st.nextToken());
+            cal = Integer.parseInt(st.nextToken());
+
+            if (isImpassibleInput()) {
                 break;
             }
-            map = new char[R][C];
+            map = new char[raw][cal];
+            mapSetting(input);
 
-            for (int i = 0; i < R; i++) {
-                map[i] = br.readLine().toCharArray();
-                for (int j = 0; j < C; j++) {
-                    switch (map[i][j]) {
-                        case 'W':
-                            target++;
-                        case 'w':
-                            player = new Point(i, j);
-                            break;
-                        case '+':
-                            target++;
-                            break;
-                    }
-                }
-            }
-            String command = br.readLine();
+            String command = input.readLine();
+            commandSetting(command);
 
             System.out.println(Arrays.deepToString(map));
             System.out.println(command);
         }
+    }
+
+    private static void commandSetting(String command) {
+        final int length = command.length();
+        for (int i = 0; i < length; i++) {
+            switch (command.charAt(i)) {
+                case 'U':
+                    move(U);
+                case 'D':
+                    move(D);
+                case 'L':
+                    move(L);
+                case 'R':
+                    move(R);
+            }
+        }
+    }
+
+    private static void mapSetting(BufferedReader br) throws IOException {
+        for (int i = 0; i < raw; i++) {
+            map[i] = br.readLine().toCharArray();
+            for (int j = 0; j < cal; j++) {
+                switch (map[i][j]) {
+                    case 'W':
+                        target++;
+                    case 'w':
+                        player = new Point(i, j);
+                        break;
+                    case '+':
+                        target++;
+                        break;
+                }
+            }
+        }
+    }
+
+    private static boolean isImpassibleInput() {
+        if (raw == 0 && cal == 0) {
+            return true;
+        }
+        return false;
+    }
+
+    private static void move(int dir) {
+        int nx = player.x + dirX[dir];
+        int ny = player.y + dirY[dir];
+
+
     }
 }
 
