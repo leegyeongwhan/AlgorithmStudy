@@ -3,6 +3,7 @@ package Bakjun_Gold;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.lang.annotation.Target;
 import java.util.*;
 
 public class G3_4577_소코반 {
@@ -21,6 +22,7 @@ public class G3_4577_소코반 {
         BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
         while (true) {
+            target = 0;
             st = new StringTokenizer(input.readLine());
             raw = Integer.parseInt(st.nextToken());
             cal = Integer.parseInt(st.nextToken());
@@ -37,6 +39,7 @@ public class G3_4577_소코반 {
 //            System.out.println(Arrays.deepToString(map));
 //            System.out.println(command);
             printMap();
+            System.out.println(target);
         }
     }
 
@@ -58,16 +61,20 @@ public class G3_4577_소코반 {
 
     private static void commandSetting(String command) {
         final int length = command.length();
-        for (int i = 0; i < length; i++) {
+        for (int i = 0; i < length && target != 0; i++) {
             switch (command.charAt(i)) {
                 case 'U':
                     move(U);
+                    break;
                 case 'D':
                     move(D);
+                    break;
                 case 'L':
                     move(L);
+                    break;
                 case 'R':
                     move(R);
+                    break;
             }
         }
     }
@@ -111,7 +118,7 @@ public class G3_4577_소코반 {
             case '+':
                 //현재 좌표가 w인지 w인지 확인
                 map[player.x][player.y] = map[player.x][player.y] == 'W' ? '+' : '.';
-                map[nx][ny] = map[player.x][player.y] == '+' ? 'W' : 'w';
+                map[nx][ny] = map[player.x][player.y] == '.' ? 'w' : 'W';
                 //플레이어 좌표 변경
                 player.x = nx;
                 player.y = ny;
@@ -134,7 +141,7 @@ public class G3_4577_소코반 {
         if (map[nx][ny] == '.' || map[nx][ny] == '+') {
             //현재 좌표가 w인지 w인지 확인
             map[x][y] = map[x][y] == 'B' ? '+' : '.';
-            map[nx][ny] = map[nx][ny] == '+' ? 'B' : 'b';
+            map[nx][ny] = map[nx][ny] == '.' ? 'b' : 'B';
             return true;
         }
         return false;
