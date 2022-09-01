@@ -36,10 +36,10 @@ public class G3_4577_소코반 {
             String command = input.readLine();
             commandSetting(command);
 
-//            System.out.println(Arrays.deepToString(map));
+       //     System.out.println(Arrays.deepToString(map));
 //            System.out.println(command);
             printMap();
-            System.out.println(target);
+    //        System.out.println(target);
         }
     }
 
@@ -118,7 +118,7 @@ public class G3_4577_소코반 {
             case '+':
                 //현재 좌표가 w인지 w인지 확인
                 map[player.x][player.y] = map[player.x][player.y] == 'W' ? '+' : '.';
-                map[nx][ny] = map[player.x][player.y] == '.' ? 'w' : 'W';
+                map[nx][ny] = map[nx][ny] == '.' ? 'w' : 'W';
                 //플레이어 좌표 변경
                 player.x = nx;
                 player.y = ny;
