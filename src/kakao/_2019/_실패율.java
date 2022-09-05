@@ -2,13 +2,14 @@ package kakao._2019;
 
 import Bakjun.A;
 
-import java.util.Arrays;
-import java.util.Collections;
+import java.util.*;
 
 public class _실패율 {
     public int[] solution(int N, int[] stages) {
         int[] answer = new int[N + 1];
         int len = stages.length;
+        Map<String, Float> map = new HashMap<>();
+        int man = len;
 
         for (int i = 1; i <= N; i++) {
             int cnt = 0;
@@ -16,22 +17,37 @@ public class _실패율 {
                 if (i == stages[j]) {
                     stages[j] = 0;
                     //실패한 사람수
-                    System.out.println("i" + i);
-                    System.out.println(Arrays.toString(stages));
-                    System.out.println();
+                    //      System.out.println("stage" + i);
+                    //      System.out.println(Arrays.toString(stages));
+                    //       System.out.println();
                     cnt++;
                 }
             }
-            float fail = cnt / len;
-            len -= cnt;
-            answer[i] = i;
-            System.out.println(Arrays.toString(answer));
+            //   System.out.println("cnt" + cnt);
+            //    System.out.println("man" + man);
+            float fail = (float) cnt / (man);
+            man -= cnt;
+            //  System.out.println("cagne " +man);
+            //  System.out.println("fail" + fail);
+            // len -= cnt;
+            //     map.put("" + i, fail);
         }
 
-        Integer[] arr2 = Arrays.stream(answer).boxed().toArray(Integer[]::new);
-        Arrays.sort(arr2, Collections.reverseOrder());
-        int b[] = Arrays.stream(arr2).mapToInt(Integer::intValue).toArray();
-        return b;
+        for (Float value : map.values()) {
+            System.out.print(value + " ");
+        }
+        System.out.println();
+        List<String> listKeySet = new ArrayList<>(map.keySet());
+        Collections.sort(listKeySet, (value1, value2) -> (map.get(value2).compareTo(map.get(value1))));
+
+        System.out.println(listKeySet);
+
+        int i = 0;
+        for (String s : listKeySet) {
+            answer[i] = Integer.parseInt(s);
+            i++;
+        }
+        return answer;
     }
 
     public static void main(String[] args) {
