@@ -6,7 +6,6 @@ import java.util.*;
 
 public class _실패율 {
     public int[] solution(int N, int[] stages) {
-        int[] answer = new int[N + 1];
         int len = stages.length;
         Map<String, Float> map = new HashMap<>();
         int man = len;
@@ -17,37 +16,32 @@ public class _실패율 {
                 if (i == stages[j]) {
                     stages[j] = 0;
                     //실패한 사람수
-                    //      System.out.println("stage" + i);
-                    //      System.out.println(Arrays.toString(stages));
-                    //       System.out.println();
+//                          System.out.println("stage" + i);
+//                          System.out.println(Arrays.toString(stages));
+                    //     System.out.println();
                     cnt++;
                 }
             }
-            //   System.out.println("cnt" + cnt);
-            //    System.out.println("man" + man);
+//              System.out.println("cnt" + cnt);
+//               System.out.println("man" + man);
             float fail = (float) cnt / (man);
             man -= cnt;
-            //  System.out.println("cagne " +man);
-            //  System.out.println("fail" + fail);
-            // len -= cnt;
-            //     map.put("" + i, fail);
+//              System.out.println("cagne " +man);
+//              System.out.println("fail" + fail);
+            map.put("" + i, fail);
         }
 
-        for (Float value : map.values()) {
-            System.out.print(value + " ");
-        }
+//        for (Float value : map.values()) {
+//            System.out.print(value + " ");
+//        }
         System.out.println();
         List<String> listKeySet = new ArrayList<>(map.keySet());
         Collections.sort(listKeySet, (value1, value2) -> (map.get(value2).compareTo(map.get(value1))));
 
-        System.out.println(listKeySet);
-
-        int i = 0;
-        for (String s : listKeySet) {
-            answer[i] = Integer.parseInt(s);
-            i++;
-        }
-        return answer;
+        int[] arr = listKeySet.stream()
+                .mapToInt(i -> Integer.parseInt(i))
+                .toArray();
+        return arr;
     }
 
     public static void main(String[] args) {
