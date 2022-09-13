@@ -1,5 +1,6 @@
 package kakao._2022;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -19,7 +20,7 @@ public class _레벨1신고결과받기 {
      */
 
     public int[] solution(String[] id_list, String[] report, int k) {
-        int[] answer = {};
+        int[] answer = new int[id_list.length];
         Map<String, HashSet<String>> reportMap = new HashMap();
         Map<String, Integer> memberMap = new HashMap();
 
@@ -28,21 +29,45 @@ public class _레벨1신고결과받기 {
             reportMap.put(id_list[i], new HashSet<>());
         }
 
-        for (int i = 0; i < report.length; i++) {
-            String[] arr = report[i].split(" ");
-            String str1 = arr[0];
-            String str2 = arr[2];
-            reportMap.get(str1).add(str2);
+//        for (Map.Entry<String, Integer> entry : memberMap.entrySet()) {
+//            System.out.println(entry);
+//        }
+//
+//        for (Map.Entry<String, HashSet<String>> entry : reportMap.entrySet()) {
+//            System.out.println(entry);
+//        }
+
+        for (String s : report) {
+            String[] str = s.split(" ");
+            String str1 = str[0];
+            String str2 = str[1];
+            reportMap.get(str2).add(str1);
         }
+
+     //   System.out.println("report 후");
+//        for (Map.Entry<String, HashSet<String>> entry : reportMap.entrySet()) {
+//            System.out.println(entry);
+//        }
+
 
         for (int i = 0; i < id_list.length; i++) {
             HashSet<String> set = reportMap.get(id_list[i]);
-            if (set.size() >= 2) {
+            if (set.size() >= k) {
                 for (String name : set) {
+                //    System.out.println(memberMap.get(name));
                     answer[memberMap.get(name)]++;
+                    //System.out.println("!!!" + Arrays.toString(answer));
                 }
             }
         }
+      //  System.out.println(Arrays.toString(answer));
         return answer;
+    }
+
+    public static void main(String[] args) {
+        _레벨1신고결과받기 s = new _레벨1신고결과받기();
+
+        System.out.println(Arrays.toString(s.solution(new String[]{"muzi", "frodo", "apeach", "neo"},
+                new String[]{"muzi frodo", "apeach frodo", "frodo neo", "muzi neo", "apeach muzi"}, 2)));
     }
 }
