@@ -9,24 +9,32 @@ import java.util.Arrays;
  */
 public class _1차비밀지도 {
     public String[] solution(int n, int[] arr1, int[] arr2) {
-        String[] answer = {};
-        int[][] map = new int[n][n];
+        String[] answer = new String[n];
 
         for (int i = 0; i < arr1.length; i++) {
-            String str = Integer.toBinaryString(arr1[i]);  // 10진수 -> 2진수
-            System.out.println(str);
-            //1001
-            int idx = 0;
-            if (str.length() < n) {
-                idx = n - str.length();
+            String str1 = getToBinaryString(arr1[i], n);  // 10진수 -> 2진수
+            String str2 = getToBinaryString(arr2[i], n);  // 10진수 -> 2진수
+            StringBuilder sb = new StringBuilder();
+            for (int j = 0; j < n; j++) {
+                if (str1.charAt(j) == '1' || str2.charAt(j) == '1') {
+                    sb.append("#");
+                } else {
+                    sb.append(" ");
+                }
             }
-            for (int j = 0; j < str.length(); j++) {
-                map[i][idx + j] = Integer.parseInt(String.valueOf(str.charAt(j)));
-            }
+            answer[i] = sb.toString();
         }
-
-        System.out.println(Arrays.deepToString(map));
+        System.out.println(Arrays.toString(answer));
         return answer;
+    }
+
+    private String getToBinaryString(int idx, int num) {
+        String binary = Integer.toBinaryString(idx);
+        int len = binary.length();
+        for (int i = 0; i < num - len; i++) {
+            binary = "0" + binary;
+        }
+        return binary;
     }
 
     public static void main(String[] args) {
