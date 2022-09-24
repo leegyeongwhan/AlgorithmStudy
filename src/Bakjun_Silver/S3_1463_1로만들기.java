@@ -7,25 +7,19 @@ import java.io.InputStreamReader;
 public class S3_1463_1로만들기 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int x = Integer.parseInt(br.readLine());
-        int cnt = 0;
+        int number = Integer.parseInt(br.readLine());
+        int dp[] = new int[number + 1];
 
-        while (true) {
-            if (x == 1) {
-                break;
-            }
-            if (x % 3 == 0) {
-                x = x / 3;
-                cnt++;
-            } else if (x % 2 == 0) {
-                x = x / 2;
-                cnt++;
-            } else {
-                x -= 1;
-                cnt++;
-            }
-            System.out.println(x);
+        dp[0] = 0;
+        dp[1] = 0;
+
+        for (int i = 2; i <= number; i++) {
+            dp[i] = dp[i - 1] + 1;
+            if (i % 2 == 0) dp[i] = Math.min(dp[i], dp[i / 2] + 1);
+            if (i % 3 == 0) dp[i] = Math.min(dp[i], dp[i / 3] + 1);
         }
-        System.out.println(cnt);
+
+        System.out.println(dp[number]);
+        br.close();
     }
 }
