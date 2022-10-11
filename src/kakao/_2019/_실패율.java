@@ -7,9 +7,10 @@ import java.util.*;
 public class _실패율 {
     public int[] solution(int N, int[] stages) {
         int len = stages.length;
-        Map<String, Float> map = new HashMap<>();
-        int man = len;
+        Map<String, Double> map = new HashMap<>();
+        int[] userFailcnt = new int[N + 2];
 
+        int man = len;
         for (int i = 1; i <= N; i++) {
             int cnt = 0;
             for (int j = 0; j < len; j++) {
@@ -24,7 +25,7 @@ public class _실패율 {
             }
 //              System.out.println("cnt" + cnt);
 //               System.out.println("man" + man);
-            float fail = (float) cnt / (man);
+            double fail = (double) cnt / (man);
             man -= cnt;
 //              System.out.println("cagne " +man);
 //              System.out.println("fail" + fail);
