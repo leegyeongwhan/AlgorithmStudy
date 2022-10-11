@@ -9,42 +9,26 @@ import java.util.StringTokenizer;
 public class _1541 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
-        StringBuilder sb = new StringBuilder();
-        int[] arr;
-        int n = Integer.parseInt(br.readLine());
+        String[] arr = br.readLine().split("-");
 
 
-        for (int i = 0; i < n; i++) {
-            int m = Integer.parseInt(br.readLine());
-            arr = new int[m];
-            int j = 0;
-            st = new StringTokenizer(br.readLine());
-            while (st.hasMoreTokens()) {
-                arr[j] = Integer.parseInt(st.nextToken());
-                j++;
+        int sum = Integer.MAX_VALUE;
+
+        for (int i = 0; i < arr.length; i++) {
+            // -로 나눈 각 항들을 더해준다
+            int res = 0;
+            String[] plus = arr[i].split("\\+");
+            for (int j = 0; j < plus.length; j++) {
+                res += Integer.parseInt(plus[j]);
             }
-            //오름차순 정렬후 배치
-            Arrays.sort(arr);
-            // System.out.println("Arrays.toString(arr) = " + Arrays.toString(arr));
-            int[] resArr = new int[arr.length];
-            int startIndex = 0;
-            int endtIndex = arr.length - 1;
 
-            for (int k = 0; k < resArr.length; k++) {
-                if (k % 2 == 0) {
-                    resArr[startIndex++] = arr[k];
-
-                } else if (k % 2 == 1) {
-                    resArr[endtIndex--] = arr[k];
-                }
+            //sum을 임의 값으로 잡고 sum에 양수 첫번째 항을 넣어준 후 두번쨰부터는 뺴줘야함
+            if (sum == Integer.MAX_VALUE) {
+                sum = res;
+            } else {
+                sum -= res;
             }
-            int max = Math.abs(resArr[0] - resArr[resArr.length - 1]);
-            for (int z = 1; z < resArr.length; z++) {
-                max = Math.max(Math.abs(resArr[z] - resArr[z - 1]), max);
-            }
-            sb.append(max).append("\n");
         }
-        System.out.println(sb);
+        System.out.println(sum);
     }
 }

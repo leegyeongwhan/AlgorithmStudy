@@ -29,10 +29,8 @@ public class _2609 {
   }
 
   public static int gcd(int a, int b) {
-
     while (b != 0) {
       int r = a % b;
-
 
       a = b;
       b = r;

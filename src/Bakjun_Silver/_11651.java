@@ -11,7 +11,6 @@ public class _11651 {
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     StringTokenizer st = new StringTokenizer(br.readLine());
-    ;
     int num = Integer.parseInt(st.nextToken());
     int[][] xy = new int[num][2];
 

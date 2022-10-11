@@ -1,9 +1,8 @@
 package Bakjun_Silver;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class _15469 {
+public class _15649 {
 
     public static int[] arr;
     public static boolean[] visit;

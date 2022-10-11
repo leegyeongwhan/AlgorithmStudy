@@ -16,6 +16,7 @@ public class _1032 {
       st = new StringTokenizer(br.readLine());  //contest.txt     //context.txt
       arr[i] = st.nextToken();
     }
+
     StringBuilder sb = new StringBuilder();
     boolean def;
     for (int i = 0; i < arr[0].length(); i++) { //50
