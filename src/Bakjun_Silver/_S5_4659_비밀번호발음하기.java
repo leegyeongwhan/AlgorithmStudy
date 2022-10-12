@@ -21,53 +21,58 @@ public class _S5_4659_비밀번호발음하기 {
             if ((str = br.readLine()).equals("end")) {
                 break;
             }
-
-            boolean check1 = false;
+            int index = 0;
+            int moNum = 0;
+            int jaNum = 0;
             boolean check2 = true;
-            boolean check3 = true;
-            Loop1:
-            //조건 1 :모음(a,e,i,o,u) 하나를 반드시 포함하여야 한다.
-            for (int i = 0; i < str.length(); i++) {
-                for (int j = 0; j < arr.length; j++) {
-                    if (arr[j] == str.charAt(i)) {
+            boolean check1 = false;
+            boolean check3 = false;
+            boolean isaou = false;
+            //1
+            for (char i : str.toCharArray()) {
+                check1 = false;
+                for (char c : arr) {
+                    if (i == c) {
                         check1 = true;
-                        break Loop1;
+                        break;
                     }
                 }
-            }
 
-            Loop2:
-            //모음이 3개 혹은 자음이 3개 연속으로 오면 안 된다.
-            for (int i = 0; i < str.length(); i++) {
-                for (int j = i + 1; j < str.length(); j++) {
-                    for (int k = j + 1; k < str.length(); k++) {
-                        if (str.charAt(i) == str.charAt(j) && str.charAt(i) == str.charAt(k)) {
-                            check2 = false;
-                            break Loop2;
-                        }
-                        continue;
-                    }
-                    continue;
+                //2
+                if (check1) {  //모음
+                    isaou = true;
+                    moNum++;
+                    jaNum = 0;
+                } else {  // 자음
+                    jaNum++;
+                    moNum = 0;
                 }
-            }
 
-            Loop3:
-            //조건 3:  * 같은 글자가 연속적으로 두번 오면 안되나, ee 와 oo는 허용한다.
-            for (int i = 0; i < str.length(); i++) {
-                for (int j = i + 1; j < str.length(); j++) {
-                    if (str.charAt(i) == str.charAt(j)) {
-                        if (str.charAt(i) == 'e' && str.charAt(j) == 'e'
-                                || str.charAt(i) == 'o' && str.charAt(j) == 'o') {
-                            continue;
-                        }
-                        check3 = false;
-                        break Loop3;
-                    }
-                    continue;
+                if (moNum == 3 || jaNum == 3) {
+                    check3 = false;
+                    break;
                 }
-            }
 
-            if (check1 == true && check2 == true && check3 == true) {
+                //3
+                char pastChar = ' ';
+                if (index > 0) {
+                    pastChar = str.charAt(index - 1);
+                }
+                if (pastChar == i) {
+                    check2 = false;
+                    if (pastChar == 'e' && i == 'e' ||
+                            pastChar == 'o' && i == 'o') {
+                        check2 = true;
+                    }
+                }
+                index++;
+            }
+//            System.out.println(jaNum);
+//            System.out.println(moNum);
+//            System.out.println(check3);
+//            System.out.println(check2);
+
+            if (isaou && check2 && jaNum < 3 && moNum < 3) {
                 System.out.println("<" + str + "> is acceptable.");
             } else {
                 System.out.println("<" + str + "> is not acceptable.");
