@@ -10,7 +10,7 @@ import java.io.InputStreamReader;
  * 중간을  구분
  * 나머지
  */
-public class S4_10994_별찍기_23 {
+public class S4_10994_별찍기19 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         final int n = Integer.parseInt(br.readLine());

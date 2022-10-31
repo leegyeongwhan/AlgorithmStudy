@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-public class S5_13015_별찍기_19 {
+public class S5_13015_별찍기23 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         final int input = Integer.parseInt(br.readLine());
