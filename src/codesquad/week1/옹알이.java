@@ -1,8 +1,4 @@
-package codesquad;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+package codesquad.week1;
 
 /**
  * 1.단어는 한번밖에 못말한다

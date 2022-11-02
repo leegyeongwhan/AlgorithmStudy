@@ -15,7 +15,10 @@ public class B3_9550_아이들은사탕을좋아해 {
             int n = Integer.parseInt(st.nextToken());
             int k = Integer.parseInt(st.nextToken());
 
-            st = new StringTokenizer(br.readLine());
+            for (int j = 0; j < n; j++) {
+                st = new StringTokenizer(br.readLine());
+            }
+
             int a = Integer.parseInt(st.nextToken());
             int b = Integer.parseInt(st.nextToken());
             int c = Integer.parseInt(st.nextToken());

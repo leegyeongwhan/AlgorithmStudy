@@ -1,4 +1,4 @@
-package codesquad;
+package codesquad.week1;
 
 import java.util.ArrayList;
 import java.util.Collections;

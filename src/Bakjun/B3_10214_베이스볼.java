@@ -19,7 +19,6 @@ public class B3_10214_베이스볼 {
                 st = new StringTokenizer(br.readLine());
                 int Y = Integer.parseInt(st.nextToken());
                 int K = Integer.parseInt(st.nextToken());
-
                 Ysum += Y;
                 Ksum += K;
             }

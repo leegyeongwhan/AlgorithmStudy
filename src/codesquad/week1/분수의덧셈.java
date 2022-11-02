@@ -1,9 +1,6 @@
-package codesquad;
+package codesquad.week1;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
 
 /**
  * 완전탐색
