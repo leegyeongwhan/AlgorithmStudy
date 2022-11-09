@@ -15,9 +15,9 @@ public class 크레인인형뽑기게임 {
                         stack.pop();
                         answer += 2;
                     } else {
-                        stack.push(board[i][idx]);
+                        stack.push(board[j][idx]);
                     }
-                    board[i][idx] = 0;
+                    board[j][idx] = 0;
                     break;
                 }
             }
@@ -27,10 +27,10 @@ public class 크레인인형뽑기게임 {
 
     public static void main(String[] args) {
         크레인인형뽑기게임 s = new 크레인인형뽑기게임();
-        s.solution(new int[][]{{0, 0, 0, 0, 0}
+        System.out.println(s.solution(new int[][]{{0, 0, 0, 0, 0}
                 , {0, 0, 1, 0, 3}
                 , {0, 2, 5, 0, 1}
                 , {4, 2, 4, 4, 2}
-                , {3, 5, 1, 3, 1}}, new int[]{1, 5, 3, 5, 1, 2, 1, 4});
+                , {3, 5, 1, 3, 1}}, new int[]{1, 5, 3, 5, 1, 2, 1, 4}));
     }
 }
