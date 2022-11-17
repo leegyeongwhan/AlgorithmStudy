@@ -1,7 +1,6 @@
-package Level1;
+package programmers.Level1;
 
 import java.util.Arrays;
-import java.util.stream.IntStream;
 
 public class 나누어_떨어지는_숫자_배열 {
     class Solution {

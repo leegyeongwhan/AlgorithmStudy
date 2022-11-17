@@ -1,4 +1,4 @@
-package Level1;
+package programmers.Level1;
 
 public class 가운데글자가져오기 {
     public String solution(String s) {

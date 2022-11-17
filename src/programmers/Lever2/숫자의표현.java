@@ -1,4 +1,4 @@
-package Lever2;
+package programmers.Lever2;
 
 public class 숫자의표현 {
     public int solution(int n) {

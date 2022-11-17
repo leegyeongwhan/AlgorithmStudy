@@ -37,7 +37,7 @@ class Main2 {
     }
 
     public static void main(String[] args) {
-        Main2 tree = new Main2();
+            Main2 tree = new Main2();
         tree.root = new NodeBfs(1);
         tree.root.lt = new NodeBfs(2);
         tree.root.rt = new NodeBfs(3);

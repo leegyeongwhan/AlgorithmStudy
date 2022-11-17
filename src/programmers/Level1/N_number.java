@@ -1,4 +1,4 @@
-package Level1;
+package programmers.Level1;
 
 class N_number {
   public long[] solution(int x, int n) {

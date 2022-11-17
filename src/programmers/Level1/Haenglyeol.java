@@ -1,4 +1,4 @@
-package Level1;
+package programmers.Level1;
 
 public class Haenglyeol {
   public int[][] solution(int[][] arr1, int[][] arr2) {

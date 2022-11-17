@@ -18,11 +18,11 @@ class Main1 {
                 return;
                 /////// 이진트리 에서 출력을 어디에서  하느냐가 중요함
             }else {
-                System.out.print(root.data+" "); //전위
+            //   System.out.print(root.data+" "); //전위
                 dfs(root.lt);
-                System.out.print(root.data+" "); //중위
+               System.out.print(root.data+" "); //중위
                 dfs(root.rt);
-                System.out.print(root.data+" "); //후위
+           //    System.out.print(root.data+" "); //후위
             }
     }
 

@@ -1,4 +1,4 @@
-package Level1;
+package programmers.Level1;
 
 import java.util.ArrayList;
 import java.util.Comparator;

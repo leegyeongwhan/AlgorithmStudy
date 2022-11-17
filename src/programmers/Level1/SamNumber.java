@@ -1,8 +1,6 @@
-package Level1;
+package programmers.Level1;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Set;
 
 public class SamNumber {
   public int[] solution(int[] arr) {

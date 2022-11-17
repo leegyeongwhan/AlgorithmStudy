@@ -1,4 +1,4 @@
-package Level1;
+package programmers.Level1;
 
 public class Hashad {
   public boolean solution(int x) {

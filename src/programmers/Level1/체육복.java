@@ -1,6 +1,4 @@
-package Level1;
-
-import Bakjun.A;
+package programmers.Level1;
 
 import java.util.Arrays;
 

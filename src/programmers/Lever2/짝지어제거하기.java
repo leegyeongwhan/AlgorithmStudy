@@ -1,4 +1,4 @@
-package Lever2;
+package programmers.Lever2;
 
 import java.util.Stack;
 

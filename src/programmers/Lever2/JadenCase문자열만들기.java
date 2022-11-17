@@ -1,8 +1,4 @@
-package Lever2;
-
-import java.lang.reflect.Array;
-import java.util.Arrays;
-import java.util.Locale;
+package programmers.Lever2;
 
 public class JadenCase문자열만들기 {
     public String solution(String s) {
