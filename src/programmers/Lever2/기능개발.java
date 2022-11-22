@@ -5,16 +5,42 @@ import java.util.stream.Stream;
 
 public class 기능개발 {
     public int[] solution(int[] progresses, int[] speeds) {
-        int[] dayOfend = new int[100];
-        int day = 1;
+        int[] work = new int[progresses.length];
 
         for (int i = 0; i < progresses.length; i++) {
-            while (progresses[i] + (day * speeds[i]) < 100) {
-                day++;
+            int cnt = 0;
+            while (true) {
+                progresses[i] += speeds[i];
+                cnt++;
+                if (progresses[i] >= 100) {
+                    break;
+                }
             }
-            dayOfend[day]++;
+            work[i] = cnt;
         }
-        return Arrays.stream(dayOfend).filter(i -> i != 0).toArray();
+        //7 3 9
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < work.length; i++) {
+            int cnt = 1;
+            int origin = work[i];
+            if (origin < 0) {
+                continue;
+            }
+            for (int j = i + 1; j < work.length; j++) {
+                int compare = work[j];
+                if (origin >= compare) {
+                    work[j] = -1;
+                    cnt++;
+                } else {
+                    break;
+                }
+            }
+            list.add(cnt);
+        }
+        System.out.println(list);
+        work = list.stream().mapToInt(Integer::intValue)
+                .toArray();
+        return work;
     }
 
     public static void main(String[] args) {
