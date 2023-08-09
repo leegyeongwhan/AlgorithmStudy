@@ -53,29 +53,12 @@ public class G5_21610_마법사상어와비바라기 {
     }
 
     private static void remove() {
-        while (!clouds.isEmpty()) {
-            Cloud cloud = clouds.poll();
-            int cnt = 0;
-
-            visit[cloud.x][cloud.y] = true;
-            for (int i = 1; i <= 7; i += 2) {
-                int nx = cloud.x + dx[i];
-                int ny = cloud.y + dy[i];
-                if (nx >= 0 && nx < n && ny >= 0 && ny < n) {
-                    if (map[nx][ny] >= 1)
-                        cnt++;
-                }
-
-            }
-            map[cloud.x][cloud.y] += cnt;
-
-        }
     }
 
     private static void move(int d, int s) {
         for (Cloud cloud : clouds) {
-            cloud.x = (N + cloud.x + dirX[d] * (s % N)) % n;
-            cloud.y = (N + cloud.y + dirY[d] * (s % N)) % n;
+            cloud.x = (N + cloud.x + dirX[d] * (s % N)) % N;
+            cloud.y = (N + cloud.y + dirY[d] * (s % N)) % N;
         }
     }
 
